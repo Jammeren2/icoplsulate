@@ -1,81 +1,44 @@
-##1
-class Person:
-    def __init__(self, name):
-        self.name = name    # устанавливаем имя
-        self.age = 1        # устанавливаем возраст
-
-    def display_info(self):
-        print(f"Имя: {self.name}\tВозраст: {self.age}")
-
-
-petr = Person("Петр")
-petr.name = "Катя"       # изменяем атрибут name
-petr.age = -129          # изменяем атрибут age
-petr.display_info()
-
-##2
-class Person:
-    def __init__(self, name):
-        self.__name = name  # устанавливаем имя
-        self.__age = 1  # устанавливаем возраст
-
-    def set_age(self, age):
-        if 1 < age < 110:
-            self.__age = age
-        else:
-            print("Недопустимый возраст")
-
-    def get_age(self):
-        return self.__age
-
-    def get_name(self):
-        return self.__name
-
-    def display_info(self):
-        print(f"Имя: {self.__name}\tВозраст: {self.__age}")
-
-
-petr = Person("Петр")
-petr.display_info()
-petr.set_age(-3486)  # Недопустимый возраст
-petr.set_age(25)
-petr.display_info()
-
-##3
-def set_age(self, age):
-    if 1 < age < 110:
-        self.__age = age
-    else:
-        print("Недопустимый возраст")
-
-class Person:
-    def __init__(self, name):
-        self.__name = name  # устанавливаем имя
-        self.__age = 1  # устанавливаем возраст
-
+class Human:
+    def __init__(self, n, a, h):
+        self.__name = n
+        self.__age = a 
+        self.__height = h 
+        
+    def print(self):
+        print(f'Имя: {self.__name}')
+        print(f'Возраст: {self.__age}')
+        print(f'Рост: {self.__height}')
+        print('-'*30)
+        
+    @property
+    def name(self):
+        return self.__name.upper()
+        
+    @name.setter
+    def name(self, n):
+        self.__name = n.capitalize()
+        
     @property
     def age(self):
         return self.__age
-
+        
     @age.setter
-    def age(self, age):
-        if 1 < age < 110:
-            self.__age = age
-        else:
-            print("Недопустимый возраст")
-
+    def age(self, a):
+        self.__age = a
     @property
-    def name(self):
-        return self.__name
+    def height(self):
+        return self.__height
+        
+    @height.setter
+    def height(self, h):
+        self.__height = h
+        
+p1 = Human ('да' , 11, 111)
 
-    def display_info(self):
-        print(f"Имя: {self.__name}\tВозраст: {self.__age}")
-
-
-petr = Person("Петр")
-
-petr.display_info()
-petr.age = -3486  # Недопустимый возраст
-print(petr.age)
-petr.age = 36
-petr.display_info()
+p1.print()
+p1.name = 'олег'
+p1.age = 5
+p1.height = 500
+print(p1.name)
+print(p1.age)
+print(p1.height)
